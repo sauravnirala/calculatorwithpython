@@ -3,6 +3,6 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "calculator-api"
+name = "calculator"
 version = "1.0.0"
 dependencies = ["Flask"]
