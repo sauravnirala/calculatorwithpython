@@ -4,16 +4,16 @@ metadata:
   name: mycalcapp
   namespace: calapp
   labels:
-    app: app
+    app: app1
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app
+      app: app1
   template:
     metadata:
       labels:
-        app: app
+        app: app1
     spec:
       containers:
         - name: calcappcont
@@ -29,7 +29,7 @@ metadata:
   namespace: calapp
 spec:
   selector:
-    app: app
+    app: app1
   ports:
     - protocol: TCP
       port: 80
