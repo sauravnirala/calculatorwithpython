@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+import os
 
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
 
