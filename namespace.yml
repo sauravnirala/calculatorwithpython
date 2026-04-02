@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: myapp
+  name: calapp
   labels:
-    app: myapp
+    app: calapp
     managed-by: jenkins
