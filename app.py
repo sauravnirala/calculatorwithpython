@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
 
-@app.route("/", methods=["POST"])
+@app.route("/")
 def home():
     return render_template("index.html")
 
