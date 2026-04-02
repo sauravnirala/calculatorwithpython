@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspa
 csrf = CSRFProtect()
 csrf.init_app(app) 
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def home():
     return render_template("index.html")
 
