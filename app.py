@@ -42,7 +42,7 @@ def add():
         return jsonify({"result": a + b})
     except:
         ERROR_COUNT.inc()
-        return jsonify({"error": "INVALID_INPUT_MSG"}), 400
+        return jsonify({"error": INVALID_INPUT_MSG}), 400
 
 @app.route("/sub", methods=["GET"])
 def subtract():
@@ -52,7 +52,7 @@ def subtract():
         return jsonify({"result": a - b})
     except:
         ERROR_COUNT.inc()
-        return jsonify({"error": "INVALID_INPUT_MSG"}), 400
+        return jsonify({"error": INVALID_INPUT_MSG}), 400
 
 @app.route("/mul", methods=["GET"])
 def multiply():
@@ -62,7 +62,7 @@ def multiply():
         return jsonify({"result": a * b})
     except:
         ERROR_COUNT.inc()
-        return jsonify({"error": "INVALID_INPUT_MSG"}), 400
+        return jsonify({"error": INVALID_INPUT_MSG}), 400
 
 @app.route("/div", methods=["GET"])
 def divide():
@@ -75,7 +75,7 @@ def divide():
         return jsonify({"result": a / b})
     except:
         ERROR_COUNT.inc()
-        return jsonify({"error": "INVALID_INPUT_MSG"}), 400
+        return jsonify({"error": INVALID_INPUT_MSG}), 400
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
