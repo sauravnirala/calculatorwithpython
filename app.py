@@ -77,5 +77,5 @@ def divide():
         ERROR_COUNT.inc()
         return jsonify({"error": INVALID_INPUT_MSG}), 400
 
-if __name__ == "__main__":
+if __name__ == "__main__":    # pragma: no cover
     app.run(host="0.0.0.0", port=5000)
