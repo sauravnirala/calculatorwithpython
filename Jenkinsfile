@@ -77,7 +77,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'nexuscred', passwordVariable: 'passwd', usernameVariable: 'username')]) 
                 {
                     sh """
-                    python3 -m twine upload --repository-url http://15.206.190.51:8081/repository/pypi-hosted/  -u $username -p $passwd dist/*
+                    python3 -m twine upload --repository-url  http://13.200.137.224:8081/repository/pypi-hosted/  -u $username -p $passwd dist/*
                     """
                 }
             }
