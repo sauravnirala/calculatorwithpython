@@ -9,7 +9,7 @@ from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_
 app = Flask(**name**, template_folder=os.path.join(os.path.dirname(os.path.abspath(**file**)), 'templates'))
 csrf = CSRFProtect()
 csrf.init_app(app)
-
+app.config['WTF_CSRF_ENABLED'] = False
 # Metrics
 
 REQUEST_COUNT = Counter('app_requests_total', 'Total HTTP Requests', ['method', 'endpoint'])
