@@ -6,7 +6,7 @@ import os
 
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
-app = Flask(**name**, template_folder=os.path.join(os.path.dirname(os.path.abspath(**file**)), 'templates'))
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
 csrf = CSRFProtect()
 csrf.init_app(app)
 app.config['WTF_CSRF_ENABLED'] = False
