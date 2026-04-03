@@ -50,7 +50,7 @@ stages {
                 sh """
                 /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner/bin/sonar-scanner \
                   -Dsonar.projectKey=calculatorwithpython \
-                  -Dsonar.sources=. \
+                  -Dsonar.sources=app.py \
                   -Dsonar.exclusions=venv/**,__pycache__/** \
                   -Dsonar.python.coverage.reportPaths=coverage.xml \
                   -Dsonar.host.url=$SONAR_HOST_URL \
