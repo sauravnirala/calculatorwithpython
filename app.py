@@ -24,7 +24,7 @@ def after_request(response):
     REQUEST_LATENCY.observe(duration)  # manually record the duration
     return response
 
-@app.route("/metrics")
+@app.route("/metrics", methods=["GET"])
 def metrics():
     return generate_latest(), 200, {'Content-Type': CONTENT_TYPE_LATEST}
 
