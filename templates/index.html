@@ -9,7 +9,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: Arial;
+            font-family: sans-serif;
         }
 
     .calculator {
@@ -134,7 +134,7 @@
     document.addEventListener("keydown", function(event) {
         const key = event.key;
 
-        if (!isNaN(key) || "+-*/.".includes(key)) {
+        if (!Number.isNaN(key) || "+-*/.".includes(key)) {
             append(key);
         } else if (key === "Enter") {
             calculate();
