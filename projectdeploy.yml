@@ -12,10 +12,10 @@ spec:
       app: mycalcapp
   template:
     metadata:
-    annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "5000"
-      prometheus.io/path: "/metrics"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5000"
+        prometheus.io/path: "/metrics"
       labels:
         app: mycalcapp
     spec:
