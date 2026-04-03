@@ -124,7 +124,7 @@ stages {
                 sed -i 's|sauravnirala/pythoncalculator:v1|${TODO_IMAGE}|g' /tmp/all-apps.yml
 
                 kubectl apply -f /tmp/all-apps.yml
-
+                kubectl rollout restart deployment mycalcapp -n ${K8S_NAMESPACE}
                 kubectl rollout status deployment/mycalcapp -n ${K8S_NAMESPACE}
             """
         }
