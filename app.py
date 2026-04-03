@@ -40,7 +40,7 @@ def add():
         a = float(request.args.get("a"))
         b = float(request.args.get("b"))
         return jsonify({"result": a + b})
-    except:
+    except (TypeError, ValueError):
         ERROR_COUNT.inc()
         return jsonify({"error": INVALID_INPUT_MSG}), 400
 
@@ -50,7 +50,7 @@ def subtract():
         a = float(request.args.get("a"))
         b = float(request.args.get("b"))
         return jsonify({"result": a - b})
-    except:
+    except (TypeError, ValueError):
         ERROR_COUNT.inc()
         return jsonify({"error": INVALID_INPUT_MSG}), 400
 
@@ -60,7 +60,7 @@ def multiply():
         a = float(request.args.get("a"))
         b = float(request.args.get("b"))
         return jsonify({"result": a * b})
-    except:
+    except (TypeError, ValueError):
         ERROR_COUNT.inc()
         return jsonify({"error": INVALID_INPUT_MSG}), 400
 
@@ -73,7 +73,7 @@ def divide():
             ERROR_COUNT.inc()
             return jsonify({"error": "Division by zero"}), 400
         return jsonify({"result": a / b})
-    except:
+    except (TypeError, ValueError):
         ERROR_COUNT.inc()
         return jsonify({"error": INVALID_INPUT_MSG}), 400
 
