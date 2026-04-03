@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_wtf.csrf import CSRFProtect
-import os
+import os , time
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
@@ -15,12 +15,13 @@ REQUEST_LATENCY = Histogram('app_request_latency_seconds', 'Request latency')
 
 @app.before_request
 def before_request():
-    request.start_time = REQUEST_LATENCY.time()
+    request.start_time = time.time()  # plain float, not a Timer object
 
 @app.after_request
 def after_request(response):
     REQUEST_COUNT.labels(request.method, request.path).inc()
-    request.start_time.__exit__(None, None, None)  # properly close the context manager
+    duration = max(time.time() - request.start_time, 0)
+    REQUEST_LATENCY.observe(duration)  # manually record the duration
     return response
 
 @app.route("/metrics")
