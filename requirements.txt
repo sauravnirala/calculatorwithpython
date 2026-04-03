@@ -3,3 +3,4 @@ flask
 flask-wtf
 pytest
 pytest-cov
+prometheus_client
