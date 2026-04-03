@@ -39,7 +39,7 @@ stages {
         steps {
             sh """
                pip install pytest pytest-cov
-               python3 -m pytest --cov=.
+               python3 -m pytest --cov=app --cov-report=xml:coverage.xml test_app.py
             """
         }
     }
@@ -52,6 +52,7 @@ stages {
                   -Dsonar.projectKey=calculatorwithpython \
                   -Dsonar.sources=. \
                   -Dsonar.exclusions=venv/**,__pycache__/** \
+                  -Dsonar.python.coverage.reportPaths=coverage.xml \
                   -Dsonar.host.url=$SONAR_HOST_URL \
                   -Dsonar.login=$SONAR_AUTH_TOKEN
                 """
