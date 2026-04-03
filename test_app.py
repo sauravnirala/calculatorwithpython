@@ -48,6 +48,19 @@ def test_invalid_input(client):
     response = client.get("/add?a=x&b=2")
     assert response.status_code == 400
 
+def test_divide_invalid_input(client):
+    response = client.get("/div?a=x&b=2")
+    assert response.status_code == 400
+    assert response.get_json()["error"] == "Invalid input"
+
+def test_subtract_invalid_input(client):
+    response = client.get("/sub?a=x&b=2")
+    assert response.status_code == 400
+
+def test_multiply_invalid_input(client):
+    response = client.get("/mul?a=x&b=2")
+    assert response.status_code == 400
+
 
 def test_metrics(client):
     response = client.get("/metrics")
